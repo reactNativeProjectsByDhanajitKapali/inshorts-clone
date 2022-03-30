@@ -17,7 +17,7 @@ const SingleNews = ({ item, index, darkTheme }) => {
   return (
     <View
       style={{
-        paddingTop: 130,
+        paddingTop: 100,
         height: windowHeight,
         width: windowWidth,
         transform: [{ scaleY: -1 }],
