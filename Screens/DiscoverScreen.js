@@ -10,6 +10,7 @@ import React, { useContext } from "react";
 import { NewsContext } from "../API/Context";
 import { categories, sources } from "../API/api";
 import Carousel from "react-native-snap-carousel";
+import Search from "../components/Search";
 
 const DiscoverScreen = () => {
   const { setCategory, setSource } = useContext(NewsContext);
@@ -19,6 +20,7 @@ const DiscoverScreen = () => {
   return (
     <View style={styles.discover}>
       {/* Search */}
+      <Search />
 
       {/* Categories */}
       <Text style={{ ...styles.subtitle, color: "white" }}>Categories</Text>
