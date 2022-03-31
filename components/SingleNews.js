@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Dimensions,
   Image,
@@ -9,11 +9,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { NewsContext } from "../API/Context";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const SingleNews = ({ item, index, darkTheme }) => {
+const SingleNews = ({ item, index }) => {
+  const { darkTheme } = useContext(NewsContext);
   return (
     <View
       style={{

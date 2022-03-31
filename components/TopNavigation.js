@@ -8,14 +8,24 @@ import {
 import { NewsContext } from "../API/Context";
 
 const TopNavigation = ({ index, setIndex }) => {
-  const { fetchNews } = useContext(NewsContext);
+  const { fetchNews, darkTheme, setDarkTheme } = useContext(NewsContext);
 
   return (
-    <View style={{ ...styles.container, backgroundColor: "#282c35" }}>
+    <View
+      style={{
+        ...styles.container,
+        backgroundColor: darkTheme ? "#282c35" : "white",
+      }}
+    >
       {/* Left icon and Text in the TopNavigation Bar */}
       {index === 0 ? (
-        <TouchableOpacity style={styles.left}>
-          <Text style={{ ...styles.text, color: "lightgrey" }}>
+        <TouchableOpacity
+          style={styles.left}
+          onPress={() => setDarkTheme(!darkTheme)}
+        >
+          <Text
+            style={{ ...styles.text, color: darkTheme ? "lightgrey" : "black" }}
+          >
             <MaterialCommunityIcons
               name="theme-light-dark"
               size={24}
@@ -33,12 +43,16 @@ const TopNavigation = ({ index, setIndex }) => {
             size={15}
             color="#007fff"
           ></SimpleLineIcons>
-          <Text style={{ ...styles.text, color: "lightgrey" }}>Discover</Text>
+          <Text
+            style={{ ...styles.text, color: darkTheme ? "lightgrey" : "black" }}
+          >
+            Discover
+          </Text>
         </TouchableOpacity>
       )}
 
       {/* Middle text in the TopNavigation Bar */}
-      <Text style={{ ...styles.center, color: "white" }}>
+      <Text style={{ ...styles.center, color: darkTheme ? "white" : "black" }}>
         {index ? "All News" : "Discover"}
       </Text>
 
@@ -57,7 +71,11 @@ const TopNavigation = ({ index, setIndex }) => {
           style={styles.left}
           onPress={() => setIndex(index === 0 ? 1 : 0)}
         >
-          <Text style={{ ...styles.text, color: "white" }}>All News</Text>
+          <Text
+            style={{ ...styles.text, color: darkTheme ? "white" : "black" }}
+          >
+            All News
+          </Text>
           <SimpleLineIcons
             name="arrow-right"
             size={15}

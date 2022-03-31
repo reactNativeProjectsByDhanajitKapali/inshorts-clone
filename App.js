@@ -1,10 +1,18 @@
+import React, { useContext } from "react";
 import { StyleSheet, Text, View, StatusBar, SafeAreaView } from "react-native";
-import Context from "./API/Context";
+import Context, { NewsContext } from "./API/Context";
 import InshortsTabs from "./components/InshortsTabs";
 
 function App() {
+  const { darkTheme } = useContext(NewsContext);
+
   return (
-    <SafeAreaView style={{ ...styles.container, backgroundColor: "#282C35" }}>
+    <SafeAreaView
+      style={{
+        ...styles.container,
+        backgroundColor: darkTheme ? "#282C35" : "white",
+      }}
+    >
       <InshortsTabs />
     </SafeAreaView>
   );

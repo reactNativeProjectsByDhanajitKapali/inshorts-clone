@@ -82,11 +82,15 @@ const Search = () => {
             position: "absolute",
             zIndex: 2,
             right: 0,
-            marginTop: 25,
+            marginTop: 30,
             marginRight: 10,
           }}
         >
-          <Entypo name="circle-with-cross" size={30} color="white" />
+          {darkTheme ? (
+            <Entypo name="circle-with-cross" size={35} color="white" />
+          ) : (
+            <Entypo name="circle-with-cross" size={35} color="black" />
+          )}
         </TouchableOpacity>
         <View
           style={{
